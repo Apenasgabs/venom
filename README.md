@@ -2,31 +2,31 @@
 
 ![enter image description here](https://s2.click/venom.jpg)
 
-> Venom is a high-performance system developed with JavaScript to create a bot for WhatsApp, support for creating any interaction, such as customer service, media sending, sentence recognition based on artificial intelligence and all types of design architecture for WhatsApp.
+> Venom é um sistema de alto desempenho desenvolvido em JavaScript para criar um bot para WhatsApp, suporte para criação de qualquer interação, como atendimento ao cliente, envio de mídia, reconhecimento de frases baseado em inteligência artificial e todos os tipos de arquitetura de design para WhatsApp.
 
-## 🕷🕷 Functions Venom🕷🕷
+## 🕷🕷 Funções do  Venom🕷🕷
 
 |                                                            |     |
 | ---------------------------------------------------------- | --- |
-| Automatic QR Refresh                                       | ✔   |
-| Send **text, image, video, audio and docs**                | ✔   |
-| Get **contacts, chats, groups, group members, Block List** | ✔   |
-| Send contacts                                              | ✔   |
-| Send stickers                                              | ✔   |
-| Send stickers GIF                                          | ✔   |
-| Multiple Sessions                                          | ✔   |
-| Forward Messages                                           | ✔   |
-| Receive message                                            | ✔   |
-| 📍 Send location!!                                         | ✔   |
-| 🕸🕸 **and much more**                                       | ✔   |
+| Atualização automatica do QR Code                          | ✔   |
+| Envia **text, image, video, audio and docs**               | ✔   |
+| Obtenha **contatos, bate-papos, grupos, membros do grupo, lista de bloqueio**	| ✔   |
+| Envia contatos                                              | ✔   |
+| Envia adesivos                                              | ✔   |
+| Envia adesivos GIF                                          | ✔   |
+| Sessões Múltiplas	                                          | ✔   |
+| Encaminhar mensagens                                        | ✔   |
+| Receber mensagem                                            | ✔ |
+| 📍 Enviar localização !!                                    | ✔ |
+| 🕸🕸 ** e muito mais **                                      | ✔ |
 
-## Installation
+## Instalação
 
 ```bash
 > npm i --save venom-bot
 ```
 
-## Getting started
+## Começando
 
 ```javascript
 // Supports ES6
@@ -56,11 +56,11 @@ function start(client) {
 }
 ```
 
-##### After executing `create()` function, **venom** will create an instance of whatsapp web. If you are not logged in, it will print a QR code in the terminal. Scan it with your phone and you are ready to go!
+##### Depois de executar a função `create ()`, ** venom ** irá criar uma instância do Whatsapp web. Se você não estiver logado, ele imprimirá um código QR no terminal. Digitalize com o seu telefone e você está pronto para começar!
 
-##### Venom will remember the session so there is no need to authenticate everytime.
+##### Venom se lembrará da sessão, então não há necessidade de autenticar todas as vezes.
 
-##### Multiples sessions can be created at the same time by pasing a session name to `create()` function:
+##### Sessões múltiplas podem ser criadas ao mesmo tempo, passando um nome de sessão para a função `create ()`:
 
 ```javascript
 // Init sales whatsapp bot
@@ -72,7 +72,7 @@ venom.create('support').then((supportClient) => {...});
 
 <br>
 
-## Optional create parameters
+## Criar parâmetros opcionais
 
 Venom `create()` method third parameter can have the following optional parameters:
 
@@ -112,21 +112,20 @@ venom
   });
 ```
 
-## Callback Status Session
+## Sessão de status de retorno de chamada
 
-Gets the return if the session is `isLogged` or `notLogged` or `browserClose` or `qrReadSuccess` or `qrReadFail` or `autocloseCalled`
+Obtém o retorno se a sessão for `isLogged` ou` notLogged` ou `browserClose` ou` qrReadSuccess` ou `qrReadFail` ou` autocloseCalled`
 
-##### `isLogged: When the user is already logged in to the browser`.
+##### `isLogged: Quando o usuário já está logado no navegador`.
+##### `notLogged: Quando o usuário não está conectado ao navegador, é necessário fazer a varredura do código QR pelo celular na opção WharsApp Web`.
 
-##### `notLogged: When the user is not connected to the browser, it is necessary to scan the QR code through the cell phone in the option WharsApp Web`.
+##### `browserClose: Se o navegador for fechado este parâmetro é retornado`.
 
-##### `browserClose: If the browser is closed this parameter and returned`.
+##### `qrReadSuccess: se o usuário não estiver logado, o código QR é passado no terminal e um retorno de chamada é retornado. Após a leitura correta pelo celular este parâmetro é retornado.
 
-##### `qrReadSuccess: if the user is not logged in, the QR code is passed on the terminal a callback is returned. After the correct reading by cell phone this parameter is returned`.
+##### `qrReadFail: Se o navegador parar quando a varredura do código QR estiver em andamento, este parâmetro é retornado`.
 
-##### `qrReadFail: If the browser stops when the QR code scan is in progress, this parameter is returned`.
-
-##### `autocloseCalled: The browser was closed using the autoClose command`.
+##### `autocloseCalled: O navegador foi fechado usando o comando autoClose`.
 
 ```javascript
 const venom = require('venom-bot');
@@ -148,10 +147,10 @@ venom
   });
 ```
 
-## Exporting QR Code
+## Exportando código QR
 
-By default QR code will appear on the terminal. If you need to pass the QR
-somewhere else heres how:
+Por padrão, o código QR aparecerá no terminal. Se você precisa passar o QR
+em outro lugar aqui está como:
 
 ```javascript
 const fs = require('fs');
@@ -194,10 +193,10 @@ venom
   });
 ```
 
-## Downloading Files
+## Baixando arquivos
 
-Puppeteer takes care of the file downloading. The decryption is being done as
-fast as possible (outruns native methods). Supports big files!
+O Puppeteer cuida do download do arquivo. A descriptografia está sendo feita como
+o mais rápido possível (ultrapassa os métodos nativos). Suporta arquivos grandes!
 
 ```javascript
 import fs = require('fs');
@@ -216,15 +215,15 @@ client.onMessage( async (message) => {
 });
 ```
 
-## Basic Functions (usage)
+## Funções básicas (uso)
 
-Not every available function is listed, for further look, every function
-available can be found in [here](/src/api/layers) and
-[here](/src/lib/wapi/functions)
+Nem todas as funções disponíveis são listadas, para uma análise mais detalhada, todas as funções
+disponíveis podem ser encontrados em [aqui](/src/api/layers) and
+[aqui](/src/lib/wapi/functions)
 
-### Chatting
+### Conversando
 
-##### Here, `chatId` could be `<phoneNumber>@c.us` or `<phoneNumber>-<groupId>@g.us`
+##### Aqui, `chatId` podera ser` <phoneNumber> @ c.us` ou `<phoneNumber> - <groupId> @ g.us`
 
 ```javascript
 // Send contact
@@ -448,7 +447,7 @@ const chat = await client.getChat('000000000000@c.us');
 const chat = await client.checkNumberStatus('000000000000@c.us');
 ```
 
-## Group Functions
+## Funções de Grupo
 
 ```javascript
 // groupId or chatId: leaveGroup 52123123-323235@g.us
@@ -493,7 +492,7 @@ await client.getGroupInfoFromInviteLink(InviteCode);
 await client.joinGroup(InviteCode);
 ```
 
-## Profile Functions
+## Funções de Perfil
 
 ```javascript
 // Set client status
@@ -506,7 +505,7 @@ await client.setProfileName('Venom bot');
 await client.setProfilePic('path/to/image.jpg');
 ```
 
-## Device Functions
+## Funções do dispositivo
 
 ```javascript
 // Delete the Service Worker
@@ -531,7 +530,7 @@ await client.isConnected();
 await client.getWAVersion();
 ```
 
-## Events
+## Eventos
 
 ```javascript
 // Listen to messages
@@ -568,7 +567,7 @@ client.onAddedToGroup(chatEvent => {
 
 ```
 
-## Other
+## Outros
 
 ```javascript
 // Pin chat and Unpin chat messages with true or false
@@ -615,11 +614,11 @@ await client.unblockContact('000000000000@c.us');
 const profile = await client.getNumberProfile('000000000000@c.us');
 ```
 
-## Misc
+## Diversos
 
-There are some tricks for a better usage of venom.
+Existem alguns truques para um melhor aproveitamento do venom.
 
-#### Keep session alive:
+#### Mantenha a sessão ativa:
 
 ```javascript
 // In case of being logged out of whatsapp web
@@ -655,10 +654,10 @@ client.onStateChange((state) => {
 });
 ```
 
-#### Multiple sessions
+#### Sessões múltiplas
 
-If you need to run multiple sessions at once just pass a session name to
-`create()` method, not use hyphen for name of sessions.
+Se você precisar executar várias sessões de uma vez, basta passar um nome de sessão para
+método `create ()`, não use hífen para o nome das sessões.
 
 ```javascript
 async () => {
@@ -668,10 +667,10 @@ async () => {
 };
 ```
 
-#### Closing (saving) sessions
+#### Fechando (salvando) sessões
 
-Close the session properly to ensure the session is saved for the next time you
-log in (So it won't ask for QR scan again). So instead of CTRL+C,
+Feche a sessão adequadamente para garantir que ela seja salva para a próxima vez que você
+faça login (para que não seja solicitada a varredura QR novamente). Então, em vez de CTRL + C,
 
 ```javascript
 // Catch ctrl+C
@@ -687,20 +686,18 @@ try {
 }
 ```
 
-### Auto closing unsynced sessions
+### Fechamento automático de sessões não sincronizadas
 
-The auto close is enabled by default and the timeout is set to 60 sec.
-Receives the time in milliseconds to countdown until paired.
+O fechamento automático é habilitado por padrão e o tempo limite é definido como 60 seg.
+Recebe o tempo em milissegundos para a contagem regressiva até o emparelhamento.
 
-Use "autoClose: 0 | false" to disable auto closing.
+Use "autoClose: 0 | false" para desativar o fechamento automático.
+### Depuração
 
-### Debugging
+## Desenvolvimento
+Construir o veneno é muito simples, embora contenha 3 projetos principais dentro
 
-## Development
-
-Building venom is really simple altough it contains 3 main projects inside
-
-1. Wapi project
+1. Projeto Wapi
 
 ```bash
 > npm run build:wapi
@@ -719,18 +716,18 @@ Building venom is really simple altough it contains 3 main projects inside
 > npm run build:venom
 ```
 
-To build the entire project just run
+Para construir o projeto inteiro basta executar
 
 ```bash
 > npm run build
 ```
 
-## Maintainers
+## Mantenedores
 
-Maintainers are needed, I cannot keep with all the updates by myself. If you are
-interested please open a Pull Request.
+Os mantenedores são necessários, não posso manter todas as atualizações sozinho. Se você é
+interessado, abra um Pull Request.
 
-## Contributing
+## Contribuindo
 
-Pull requests are welcome. For major changes, please open an issue first to
-discuss what you would like to change.
+Solicitações pull são bem-vindas. Para mudanças importantes, abra um problema primeiro para
+discuta o que você gostaria de mudar.
