@@ -46,10 +46,10 @@ function start(client) {
       client
         .sendText(message.from, 'Welcome Venom 🕷')
         .then((result) => {
-          console.log('Result: ', result); //return object success
+          console.log('Result: ', result); //retorna o object com successo
         })
         .catch((erro) => {
-          console.error('Error when sending: ', erro); //return object error
+          console.error('Error when sending: ', erro); //retorna o object error
         });
     }
   });
@@ -63,10 +63,10 @@ function start(client) {
 ##### Sessões múltiplas podem ser criadas ao mesmo tempo, passando um nome de sessão para a função `create ()`:
 
 ```javascript
-// Init sales whatsapp bot
+// Inicia bot whatsapp de vendas
 venom.create('sales').then((salesClient) => {...});
 
-// Init support whatsapp bot
+// Inicia bot whatsapp de suporte
 venom.create('support').then((supportClient) => {...});
 ```
 
@@ -90,8 +90,8 @@ venom
       console.log('Status Session: ', statusSession); //return isLogged || notLogged || browserClose || qrReadSuccess || qrReadFail || autocloseCalled
     },
     {
-      folderNameToken: 'tokens', //folder name when saving tokens
-      mkdirFolderToken: '', //folder directory tokens, just inside the venom folder, example:  { mkdirFolderToken: '/node_modules', } //will save the tokens folder in the node_modules directory
+      folderNameToken: 'tokens', //Nome da pasta quando salvo o token
+      mkdirFolderToken: '', //diretorio da pasta de tokens, just inside the venom folder, example:  { mkdirFolderToken: '/node_modules', } //will save the tokens folder in the node_modules directory
       headless: true, // Headless chrome
       devtools: false, // Open devtools by default
       useChrome: true, // If false will use Chromium instance
