@@ -87,21 +87,21 @@ venom
       console.log('base64 image string qrcode: ', base64Qrimg);
     },
     (statusSession) => {
-      console.log('Status Session: ', statusSession); //return isLogged || notLogged || browserClose || qrReadSuccess || qrReadFail || autocloseCalled
+      console.log('Status Session: ', statusSession); //retorna isLogged || notLogged || browserClose || qrReadSuccess || qrReadFail || autocloseCalled
     },
     {
       folderNameToken: 'tokens', //Nome da pasta quando salvo o token
-      mkdirFolderToken: '', //diretorio da pasta de tokens, just inside the venom folder, example:  { mkdirFolderToken: '/node_modules', } //will save the tokens folder in the node_modules directory
+      mkdirFolderToken: '', //diretorio da pasta de tokens, dentro da pasta, exemplo:  { mkdirFolderToken: '/node_modules', } //irá salvar a pasta de tokens no diretório node_modules
       headless: true, // Headless chrome
-      devtools: false, // Open devtools by default
-      useChrome: true, // If false will use Chromium instance
-      debug: false, // Opens a debug session
-      logQR: true, // Logs QR automatically in terminal
+      devtools: false, // Abre devtools por padrao
+      useChrome: true, // Se for falso, usará a instância do Chromium
+      debug: false, // Abre uma sessão de depuração
+      logQR: true, // Registra QR automaticamente no terminal
       browserArgs: [''], // Parameters to be added into the chrome browser instance
-      disableSpins: true, // Will disable Spinnies animation, useful for containers (docker) for a better log
-      disableWelcome: true, // Will disable the welcoming message which appears in the beginning
-      updatesLog: true, // Logs info updates automatically in terminal
-      autoClose: 60000, // Automatically closes the venom-bot only when scanning the QR code (default 60 seconds, if you want to turn it off, assign 0 or false)
+      disableSpins: true, // Desativará a animação do Spinnies, útil para contêineres (docker) para um melhor registro
+      disableWelcome: true, // Irá desativar a mensagem de boas-vindas que aparece no início
+      updatesLog: true, // Registra atualizações de informações automaticamente no terminal
+      autoClose: 60000, // Fecha automaticamente o venom-bot apenas ao escanear o código QR (padrão 60 segundos, se você quiser desligá-lo, atribua 0 ou falso)
     }
   )
   .then((client) => {
@@ -205,8 +205,8 @@ import mime = require('mime-types');
 client.onMessage( async (message) => {
   if (message.isMedia === true || message.isMMS === true) {
     const buffer = await client.decryptFile(message);
-    // At this point you can do whatever you want with the buffer
-    // Most likely you want to write it into a file
+    // Neste ponto, você pode fazer o que quiser com o buffer
+    // Provavelmente você deseja gravá-lo em um arquivo
     const fileName = `some-file-name.${mime.extension(message.mimetype)}`;
     await fs.writeFile(fileName, buffer, (err) => {
       ...
