@@ -340,7 +340,7 @@ await client
   .catch((erro) => {
     console.error('Error when sending: ', erro); //return object error
   });
-
+// gera uma figurinha a partir de uma imagem e envia ela como figurinha
 // Generates sticker from given image and sends it (Send Image As Sticker)
 // image path imageBase64 A valid png, jpg and webp image is required. You can also send via http/https (http://www.website.com/img.jpg)
 await client
